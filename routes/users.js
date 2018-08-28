@@ -6,14 +6,12 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/login', function(req, res, next) {
-    console.log(JSON.stringify(req.headers));
-    console.log(req.query["g-recaptcha-response"]);
-  res.send('respond with login');
-});
-
 router.post('/login', function(req, res, next) {
-    //console.log(req.body);
+    console.log(JSON.stringify(req.headers));
+    console.log(req.headers["x-forwarded-for"]);
+    console.log(req.body["g-recaptcha-response"]);
+    console.log(req.body["exampleInputEmail1"]);
+    console.log(req.body["exampleInputPassword1"]);
   res.send('respond with login');
 });
 
